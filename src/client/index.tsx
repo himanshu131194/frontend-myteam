@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import App from './App';
-import './scss/app';
+import MainRouter from './MainRouter';
 
-render(<App />, document.getElementById("root"));
+render(<MainRouter />, document.getElementById("root"));
