@@ -19,7 +19,6 @@ export default ()=>{
                 <link rel="stylesheet" href="https://19p15p14p07p19.s3.ap-south-1.amazonaws.com/assets/css/theme.min.css">
             </head>
             <body>
-                
                 <noscript>
                     You need to enable JavaScript to run this app.
                 </noscript>
