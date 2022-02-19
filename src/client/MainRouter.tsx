@@ -4,9 +4,8 @@ import {
     Routes,
     Route
 } from "react-router-dom";
-import App from './App';
-import Login from "./components/Account/Login";
-import Signup from "./components/Account/Signup";
+// import App from './App';
+import {routes, RoutesType} from './Routes';
 
 interface Props { }
 
@@ -17,9 +16,9 @@ class MainRouter extends React.Component<Props, States> {
         return (
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<App />} />
-                    <Route path="login" element={<Login />} />
-                    <Route path="signup" element={<Signup />} />
+                    {routes.map((route: RoutesType)=>{
+                        return <Route path={route.path} element={route.container} key={route.id}/>
+                    })}
                 </Routes>
             </BrowserRouter>
         );
