@@ -1,5 +1,5 @@
 import React from 'react';
-import Accounts from '../components/Accounts'
+import Accounts from '../components/Accounts';
 
 
 const AccountsContainer: React.FC = ()=>{
