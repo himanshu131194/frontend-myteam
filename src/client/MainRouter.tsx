@@ -6,9 +6,8 @@ import {
     Outlet,
     Navigate
 } from "react-router-dom";
-// import App from './App';
-import {routes, RoutesType} from './Routes';
-import UsersContainer from "./containers/UsersContainer";
+import HeaderContainer from "./containers/HeaderContainer";
+import {routes, privateRoutes ,RoutesType} from './Routes';
 
 interface Props { }
 
@@ -28,7 +27,9 @@ class MainRouter extends React.Component<Props, States> {
             <BrowserRouter>
                 <Routes>
                     <Route path={'/'} element={<PrivateOutlet/>}>
-                        <Route path={'users'} element={<UsersContainer/>}/>                      
+                        {privateRoutes.map((route: RoutesType)=>{
+                            return <Route path={route.path} element={route.container} key={route.id}/>
+                        })}                    
                     </Route>
                     {routes.map((route: RoutesType)=>{
                         return <Route path={route.path} element={route.container} key={route.id}/>
