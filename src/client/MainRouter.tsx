@@ -1,43 +1,45 @@
 import React from "react";
 import {
-    BrowserRouter,
-    Routes,
-    Route,
-    Outlet,
-    Navigate
+  BrowserRouter,
+  Routes,
+  Route,
+  Outlet,
+  Navigate,
 } from "react-router-dom";
-import HeaderContainer from "./containers/HeaderContainer";
-import {routes, privateRoutes ,RoutesType} from './Routes';
+// import App from './App';
+import { routes, RoutesType } from "./Routes";
+import UsersContainer from "./containers/UsersContainer";
 
-interface Props { }
+interface Props {}
 
-interface States { }
+interface States {}
 
-
-function PrivateOutlet(){
-    const isAuthenticaed: boolean = true;
-    return isAuthenticaed ? <Outlet/>: <Navigate to="/account/login" />
+function PrivateOutlet() {
+  const isAuthenticaed: boolean = true;
+  return isAuthenticaed ? <Outlet /> : <Navigate to="/account/login" />;
 }
 
-
-
 class MainRouter extends React.Component<Props, States> {
-    render(): any {
-        return (
-            <BrowserRouter>
-                <Routes>
-                    <Route path={'/'} element={<PrivateOutlet/>}>
-                        {privateRoutes.map((route: RoutesType)=>{
-                            return <Route path={route.path} element={route.container} key={route.id}/>
-                        })}                    
-                    </Route>
-                    {routes.map((route: RoutesType)=>{
-                        return <Route path={route.path} element={route.container} key={route.id}/>
-                    })}
-                </Routes>
-            </BrowserRouter>
-        );
-    }
+  render(): any {
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route path={"/"} element={<PrivateOutlet />}>
+            <Route path={"users"} element={<UsersContainer />} />
+          </Route>
+          {routes.map((route: RoutesType) => {
+            return (
+              <Route
+                path={route.path}
+                element={route.container}
+                key={route.id}
+              />
+            );
+          })}
+        </Routes>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default MainRouter;

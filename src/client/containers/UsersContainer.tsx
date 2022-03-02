@@ -1,10 +1,10 @@
 import React from 'react';
-import Campaign from '../components/Campaign';
+// import Accounts from '../components/Accounts';
 
 
 const UsersContainer: React.FC = ()=>{
     return (
-        <Campaign/>
+        <h1>Users</h1>
     )
 }
 
