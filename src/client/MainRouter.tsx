@@ -6,17 +6,16 @@ import {
     Outlet,
     Navigate
 } from "react-router-dom";
-import HeaderContainer from "./containers/HeaderContainer";
-import {routes, privateRoutes ,RoutesType} from './Routes';
+import { routes, privateRoutes, RoutesType } from './Routes';
 
 interface Props { }
 
 interface States { }
 
 
-function PrivateOutlet(){
+function PrivateOutlet() {
     const isAuthenticaed: boolean = true;
-    return isAuthenticaed ? <Outlet/>: <Navigate to="/account/login" />
+    return isAuthenticaed ? <Outlet /> : <Navigate to="/account/login" />
 }
 
 
@@ -26,13 +25,13 @@ class MainRouter extends React.Component<Props, States> {
         return (
             <BrowserRouter>
                 <Routes>
-                    <Route path={'/'} element={<PrivateOutlet/>}>
-                        {privateRoutes.map((route: RoutesType)=>{
-                            return <Route path={route.path} element={route.container} key={route.id}/>
-                        })}                    
+                    <Route path={'/'} element={<PrivateOutlet />}>
+                        {privateRoutes.map((route: RoutesType) => {
+                            return <Route path={route.path} element={route.container} key={route.id} />
+                        })}
                     </Route>
-                    {routes.map((route: RoutesType)=>{
-                        return <Route path={route.path} element={route.container} key={route.id}/>
+                    {routes.map((route: RoutesType) => {
+                        return <Route path={route.path} element={route.container} key={route.id} />
                     })}
                 </Routes>
             </BrowserRouter>
